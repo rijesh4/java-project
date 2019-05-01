@@ -7,6 +7,6 @@ node ('linux') {
     sh 'ant -f build.xml -v'
   }
   stage('Deploy') {
-    sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-7.jar s3://kuma5739-assignment10-devops/'
+    sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-9.jar s3://kuma5739-assignment10-devops/'
   }
 }
