@@ -1,6 +1,6 @@
 node ('linux') {
-  stage('Test') {
+  stage('Unit Test') {
     git 'https://github.com/rijesh4/java-project.git'
-    sh 'ant -buildfile test.xml'
+    sh 'ant -f test.xml -v'
   }
 }
