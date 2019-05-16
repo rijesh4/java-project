@@ -14,4 +14,9 @@ node ('linux') {
       sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins'
     }
   }
+  stage ("CloudFormation Test") {
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '67367deb-42c5-401b-b97e-e4378ac2e8e7', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+          sh 'aws cloudformation create-stack --stack-name jenkins-create --template-body file://cloudformation.json --region us-east-1'        
+        }
+  }
 }
